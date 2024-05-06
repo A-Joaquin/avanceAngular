@@ -1,0 +1,5 @@
+<div class="contenedor-productos">
+    @for (item of listaDeProductos; track item.id) {
+        <app-producto [producto]="item"></app-producto>
+    }
+</div>
