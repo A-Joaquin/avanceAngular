@@ -15,10 +15,10 @@ export class TiendaComponent {
   productosService: ProductoService=inject(ProductoService);
   constructor()
   {
-    this.listaDeProductos=this.productosService.obtenerTodosLosProductos();
+    this.productosService.obtenerTodosLosProductos().subscribe(
+      data => this.listaDeProductos=data,
+      error =>console.log("Hay un error"),
+      () => console.log("FIN")
+    )
   }
-  /*constructor(private productoService:ProductoService)// Otra forma.
-  {
-    this.productoService.obtenerTodosLosProductos();
-  }*/
 }

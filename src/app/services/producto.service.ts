@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Product } from '../interfaces/product';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -116,15 +118,13 @@ export class ProductoService {
       }
     }
   ]
-  constructor() { }
-  obtenerTodosLosProductos()
+  constructor(private http: HttpClient) { }
+  obtenerTodosLosProductos(): Observable<Product[]>
   {
-    this.metodo();
-    return this.listaDeProductos;
+    return this.http.get<Product[]>("https://fakestoreapi.com/products"); //esto es un observable.
   }
-  metodo()
+  obtenerProductoPorId(id:number)
   {
-    
+    return this.http.get<Product>("https://fakestoreapi.com/products/" + id);
   }
-
 }

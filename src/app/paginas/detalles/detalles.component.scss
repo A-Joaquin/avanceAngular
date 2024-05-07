@@ -1,0 +1,25 @@
+.contenedor-detalle{
+    display: flex;
+    justify-content: center;
+    .imagen{
+      padding: 15px;
+      flex-basis: 20%;
+      img{
+        display: block;
+        max-width: 100%;
+      }
+    }
+    .descripcion{
+      padding: 15px;
+      flex-basis: 40%;
+    }
+   }
+   
+   
+   button {
+    color: #ffffff;
+    border-color: var(--color-1);
+    background-color: var(--color-1);
+    padding: 15px;
+   }
+   
