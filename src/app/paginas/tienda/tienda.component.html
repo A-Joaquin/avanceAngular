@@ -1,3 +1,7 @@
+<div *ngIf="usuario">
+  <h1>Bienvenido, {{ usuario }}</h1>
+</div>
+
 <div class="contenedor-productos">
     @for ( producto of listaDeProductos; track producto.id){
       <div>
@@ -7,4 +11,5 @@
       <p>No existen productos</p>
     }
 </div>
+
    

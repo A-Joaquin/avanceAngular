@@ -1,0 +1,23 @@
+<!-- carrito.component.html -->
+
+<div *ngIf="carritos.length > 0; else noCarritos">
+    <h2>Carritos</h2>
+    <ul>
+      <li *ngFor="let carrito of carritos">
+        <h3>Carrito #{{ carrito.id }}</h3>
+        <p>Usuario: {{ carrito.userId }}</p>
+        <p>Fecha: {{ carrito.date | date }}</p>
+        <p>Productos:</p>
+        <ul>
+          <li *ngFor="let product of carrito.products">
+            <app-cart [productCart]="product"></app-cart>
+          </li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+  
+  <ng-template #noCarritos>
+    <p>No hay carritos disponibles.</p>
+  </ng-template>
+  

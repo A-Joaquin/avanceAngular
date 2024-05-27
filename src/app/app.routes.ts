@@ -5,6 +5,8 @@ import { NosotrosComponent } from './paginas/nosotros/nosotros.component';
 import { ContactanosComponent } from './paginas/contactanos/contactanos.component';
 import { PaginaNoEncontradaComponent } from './paginas/pagina-no-encontrada/pagina-no-encontrada.component';
 import { DetallesComponent } from './paginas/detalles/detalles.component';
+import { CarritoComponent } from './paginas/carrito/carrito.component';
+import { LoginComponent } from './paginas/login/login.component';
 
 export const routes: Routes = [
     {path: 'inicio',component:InicioComponent},
@@ -12,6 +14,8 @@ export const routes: Routes = [
     {path: 'detalles/:id', component: DetallesComponent},
     {path: 'nosotros',component:NosotrosComponent},
     {path: 'contactanos',component:ContactanosComponent},
-    {path: '',redirectTo:'inicio',pathMatch:'full'},
+    {path: 'carrito',component:CarritoComponent},
+    {path: 'login',component:LoginComponent},
+    {path: '',redirectTo:'login',pathMatch:'full'},
     {path: '**', component:PaginaNoEncontradaComponent}
 ];

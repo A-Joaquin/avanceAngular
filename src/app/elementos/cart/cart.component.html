@@ -1,0 +1,11 @@
+<div class="cart-contenedor-detalle" *ngIf="detalleDelProducto">
+  <div class="cart-imagen">
+    <img [src]="detalleDelProducto.image" alt="Product Image">
+  </div>
+  <div class="cart-descripcion">
+    <h2 class="cart-titulo">{{ detalleDelProducto.title }}</h2>
+    <p class="cart-precio-recomendado"><s>Precio de venta recomendado: $1785</s></p>
+    <p class="cart-precio-oferta"><strong>¡Ahora a la venta por solo ${{ detalleDelProducto.price }}</strong></p>
+    <p class="cart-cantidad">cantidad: {{ productCart.quantity }}</p>
+  </div>
+</div>
