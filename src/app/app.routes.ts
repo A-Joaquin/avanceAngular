@@ -7,6 +7,7 @@ import { PaginaNoEncontradaComponent } from './paginas/pagina-no-encontrada/pagi
 import { DetallesComponent } from './paginas/detalles/detalles.component';
 import { CarritoComponent } from './paginas/carrito/carrito.component';
 import { LoginComponent } from './paginas/login/login.component';
+import { SignUpComponent } from './paginas/sign-up/sign-up.component';
 
 export const routes: Routes = [
     {path: 'inicio',component:InicioComponent},
@@ -15,7 +16,9 @@ export const routes: Routes = [
     {path: 'nosotros',component:NosotrosComponent},
     {path: 'contactanos',component:ContactanosComponent},
     {path: 'carrito',component:CarritoComponent},
+    {path: 'sign-up', component:SignUpComponent},
     {path: 'login',component:LoginComponent},
+    
     {path: '',redirectTo:'login',pathMatch:'full'},
     {path: '**', component:PaginaNoEncontradaComponent}
 ];

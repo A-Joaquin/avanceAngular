@@ -28,7 +28,7 @@ export class UsuarioService {
   {
     return this.http.get<User[]>("https://fakestoreapi.com/users?sort=desc"); //esto es un observable.
   }
-  agregarUsuario(user: User): Observable<User> {
+  agregarUsuario(user: Omit<User, 'id'>): Observable<User> {
     return this.http.post<User>('https://fakestoreapi.com/users', user);
   }
 
