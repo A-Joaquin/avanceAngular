@@ -1,47 +1,39 @@
-import { Component, inject } from '@angular/core';
-import { AuthService } from '../../services/serviceAuth/auth.service';
-import { Router } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { CommonModule } from '@angular/common';
+import { Component, OnInit } from '@angular/core';
+import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UsuarioService } from '../../services/serviceUsuario/usuario.service';
 
 @Component({
   selector: 'app-sign-up',
   standalone: true,
-  imports: [FormsModule,CommonModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './sign-up.component.html',
   styleUrl: './sign-up.component.scss'
 })
-export class SignUpComponent {
-  username: string = '';
-  password: string = '';
-  confirmPassword: string = '';
-  errorMessage: string = '';
-  router: Router = inject(Router);
-  authService: AuthService = inject(AuthService);
 
-  constructor() {}
+export class SignUpComponent implements OnInit {
+  signupForm!: FormGroup;
 
-  signup() {
-    if (this.username.trim() === '' || this.password.trim() === '' || this.confirmPassword.trim() === '') {
-      this.errorMessage = 'All fields are required';
-      return;
+  constructor(private fb: FormBuilder, private userService: UsuarioService) {}
+
+  ngOnInit(): void {
+    this.signupForm = this.fb.group({
+      username: ['', [Validators.required]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', [Validators.required, Validators.minLength(6)]]
+    });
+  }
+
+  onSubmit(): void {
+    if (this.signupForm.valid) {
+      this.userService.agregarUsuario(this.signupForm.value)
+        .subscribe(
+          response => {
+            console.log('User registered successfully', response);
+          },
+          error => {
+            console.error('There was an error!', error);
+          }
+        );
     }
-
-    if (this.password !== this.confirmPassword) {
-      this.errorMessage = 'Passwords do not match';
-      return;
-    }
-
-    this.authService.signup(this.username, this.password).subscribe(
-      response => {
-        // Asume que el token viene en la respuesta
-        const token = response.token;
-        this.authService.setToken(token);
-        this.router.navigate(['/tienda']);
-      },
-      error => {
-        this.errorMessage = 'Error during sign up: ' + error.message;
-      }
-    );
   }
 }
