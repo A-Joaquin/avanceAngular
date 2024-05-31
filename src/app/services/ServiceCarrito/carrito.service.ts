@@ -73,10 +73,36 @@ export class CarritoService {
         };
         
         const url = updatedCart.id ? `${this.apiUrl}/${updatedCart.id}` : `${this.apiUrl}`;
-        
+        console.log('Body del carrito actualizado:', updatedCart);
         return this.http.request<Cart>(updatedCart.id ? 'PUT' : 'POST', url, { body: updatedCart }).pipe(
           catchError((err: any) => {
             console.error('Error al agregar producto al carrito más reciente:', err);
+            return throwError(err);
+          })
+        );
+      })
+    );
+  }
+
+  eliminarProductoDelCarritoMasReciente(productId: number, userId: number): Observable<Cart> {
+    return this.obtenerCarritoMasReciente(userId).pipe(
+      catchError(err => {
+        console.error('Error al obtener el carrito más reciente:', err);
+        return throwError(err);
+      }),
+      mergeMap(carritoMasReciente => {
+        const updatedProducts = carritoMasReciente.products.filter(product => product.productId !== productId);
+        const updatedCart = {
+          ...carritoMasReciente,
+          products: updatedProducts,
+          userId: userId
+        };
+
+        const url = updatedCart.id ? `${this.apiUrl}/${updatedCart.id}` : `${this.apiUrl}`;
+        console.log('Body del carrito actualizado:', updatedCart);
+        return this.http.request<Cart>(updatedCart.id ? 'PUT' : 'POST', url, { body: updatedCart }).pipe(
+          catchError((err: any) => {
+            console.error('Error al eliminar producto del carrito más reciente:', err);
             return throwError(err);
           })
         );
