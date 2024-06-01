@@ -7,15 +7,17 @@ import { PaginaNoEncontradaComponent } from './paginas/pagina-no-encontrada/pagi
 import { DetallesComponent } from './paginas/detalles/detalles.component';
 import { CarritoComponent } from './paginas/carrito/carrito.component';
 import { LoginComponent } from './paginas/login/login.component';
+import { PerfilComponent } from './paginas/perfil/perfil.component';
 
 export const routes: Routes = [
-    {path: 'inicio',component:InicioComponent},
-    {path: 'tienda',component:TiendaComponent},
-    {path: 'detalles/:id', component: DetallesComponent},
-    {path: 'nosotros',component:NosotrosComponent},
-    {path: 'contactanos',component:ContactanosComponent},
-    {path: 'carrito',component:CarritoComponent},
-    {path: 'login',component:LoginComponent},
-    {path: '',redirectTo:'login',pathMatch:'full'},
-    {path: '**', component:PaginaNoEncontradaComponent}
+    { path: 'inicio', component: InicioComponent },
+    { path: 'tienda', component: TiendaComponent },
+    { path: 'detalles/:id', component: DetallesComponent },
+    { path: 'nosotros', component: NosotrosComponent },
+    { path: 'contactanos', component: ContactanosComponent },
+    { path: 'carrito', component: CarritoComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'perfil', component: PerfilComponent },
+    { path: '', redirectTo: 'login', pathMatch: 'full' },
+    { path: '**', component: PaginaNoEncontradaComponent }
 ];
