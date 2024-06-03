@@ -23,4 +23,8 @@ export class ProductoService {
     return this.http.delete('https://fakestoreapi.com/products/' + id);
   }
 
+  agregarProducto(product: Product): Observable<Product> {
+    return this.http.post<Product>('https://fakestoreapi.com/products/', product);
+  }
+
 }
