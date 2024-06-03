@@ -1,0 +1,54 @@
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    font-size: 3em;
+    background: linear-gradient(to right, rgb(24, 53, 4), rgb(60, 255, 0));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+img {
+    width: 80%;
+}
+
+.contenedor-inicio-1 {
+    width: 100%;
+    display: flex;
+    padding-top: 7%;
+}
+
+.contenedor-inicio-2 {
+    width: 50%;
+    display: flex;
+    align-items: center;
+}
+
+.contenedor-inicio-3 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+#imagen-inicio {
+    display: grid;
+    place-items: center;
+}
+
+#imagen-inicio img {
+    box-shadow: 10px 10px 5px rgba(0, 0, 0, 0.5), -10px -10px 5px rgba(0, 0, 0, 0.3);
+}
+
+#texto-y-adornos {
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+@media screen and (max-width: 1020px) {
+    .contenedor-inicio-1 {
+        display: grid;
+        place-items: center;
+    }
+}

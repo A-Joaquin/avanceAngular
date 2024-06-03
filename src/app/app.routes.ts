@@ -10,6 +10,7 @@ import { LoginComponent } from './paginas/login/login.component';
 import { SignUpComponent } from './paginas/sign-up/sign-up.component';
 import { PerfilComponent } from './paginas/perfil/perfil.component';
 import { AgregarProductoComponent } from './paginas/agregar-producto/agregar-producto.component';
+import { VistaPerfilComponent } from './paginas/vista-perfil/vista-perfil.component';
 export const routes: Routes = [
     {path: 'inicio',component:InicioComponent},
     {path: 'tienda',component:TiendaComponent},
@@ -19,6 +20,7 @@ export const routes: Routes = [
     {path: 'carrito',component:CarritoComponent},
     {path: 'sign-up', component:SignUpComponent},
     {path: 'login',component:LoginComponent},
+    {path: 'vista-perfil', component: VistaPerfilComponent},
     { path: 'perfil', component: PerfilComponent },
     { path: 'agregar-producto', component: AgregarProductoComponent },
  

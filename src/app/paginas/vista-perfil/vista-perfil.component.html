@@ -1,0 +1,48 @@
+<div class="perfil-container">
+    <form [formGroup]="perfilForm">
+        <div>
+          <label for="email">Email</label>
+          <input id="email" formControlName="email" readonly>
+        </div>
+        <div>
+          <label for="username">Username</label>
+          <input id="username" formControlName="username" readonly>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input id="password" type="password" formControlName="password" readonly>
+        </div>
+        <div>
+          <label for="firstname">First Name</label>
+          <input id="firstname" formControlName="firstname" readonly>
+        </div>
+        <div>
+          <label for="lastname">Last Name</label>
+          <input id="lastname" formControlName="lastname" readonly>
+        </div>
+        <div>
+          <label for="city">City</label>
+          <input id="city" formControlName="city" readonly>
+        </div>
+        <div>
+          <label for="street">Street</label>
+          <input id="street" formControlName="street" readonly>
+        </div>
+        <div>
+          <label for="number">Number</label>
+          <input id="number" formControlName="number" readonly>
+        </div>
+        <div>
+          <label for="zipcode">Zipcode</label>
+          <input id="zipcode" formControlName="zipcode" readonly>
+        </div>
+        <div>
+          <label for="phone">Phone</label>
+          <input id="phone" formControlName="phone" readonly>
+        </div>
+    </form>
+    <a [routerLink]="['/perfil']">Editar</a>
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+  </div>
