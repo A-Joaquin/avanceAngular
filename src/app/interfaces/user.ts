@@ -1,18 +1,19 @@
+export interface Geolocation {
+    lat: string;
+    long: string;
+}
+
+export interface Address {
+    city: string;
+    street: string;
+    number: number;
+    zipcode: string;
+    geolocation: Geolocation;
+}
+
 export interface Name {
     firstname: string;
     lastname: string;
-}
-export interface Geolocation {
-    lat: number;
-    long: number;
-}
-
-export interface Adress {
-    city: string;
-    street: string;
-    number:number;
-    zipcode:number;
-    geolocation:Geolocation;
 }
 
 export interface User {
@@ -21,6 +22,6 @@ export interface User {
     username: string;
     password: string;
     name: Name;
-    adress:Adress,
-    phone:string;
+    address: Address;
+    phone: string;
 }

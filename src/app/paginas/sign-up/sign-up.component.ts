@@ -43,7 +43,7 @@ export class SignUpComponent implements OnInit {
           firstname: formValues.firstname,
           lastname: formValues.lastname
         },
-        adress: {
+        address: {
           city: formValues.city,
           street: formValues.street,
           number: formValues.number,
