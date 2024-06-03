@@ -4,11 +4,11 @@ import { Product } from '../../interfaces/product';
 import { ProductoService } from '../../services/producto.service';
 import { AuthService } from '../../services/serviceAuth/auth.service';
 import { CommonModule } from '@angular/common';
-
+import { AgregarProductoComponent } from '../agregar-producto/agregar-producto.component';
 @Component({
   selector: 'app-tienda',
   standalone: true,
-  imports: [ProductoComponent,CommonModule],
+  imports: [ProductoComponent,CommonModule,AgregarProductoComponent],
   templateUrl: './tienda.component.html',
   styleUrl: './tienda.component.scss'
 })
@@ -39,6 +39,14 @@ export class TiendaComponent implements OnInit{
         error => console.error('Error al obtener los detalles del usuario', error)
       );
     }
+  }
+
+  onProductoAgregado(nuevoProducto: Product): void {
+    this.listaDeProductos.push(nuevoProducto);
+  }
+
+  trackById(index: number, item: Product): number {
+    return item.id;
   }
   
   

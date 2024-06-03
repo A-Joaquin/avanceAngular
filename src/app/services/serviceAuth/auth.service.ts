@@ -13,7 +13,6 @@ import {jwtDecode} from 'jwt-decode'; // Ajuste en la importación
 })
 export class AuthService {
 
-
   private apiUrl = 'https://fakestoreapi.com/auth/login';
   private apiUrl2 = 'https://fakestoreapi.com/users';
 

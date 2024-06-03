@@ -2,6 +2,8 @@ import { Component, inject } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../interfaces/product';
 import { ProductoService } from '../../services/producto.service';
+import { CarritoService } from '../../services/ServiceCarrito/carrito.service';
+import { AuthService } from '../../services/serviceAuth/auth.service';
 
 @Component({
   selector: 'app-detalles',
@@ -13,6 +15,8 @@ import { ProductoService } from '../../services/producto.service';
 export class DetallesComponent {
   route: ActivatedRoute=inject(ActivatedRoute)
   productoService: ProductoService=inject(ProductoService);
+  carritoService: CarritoService=inject(CarritoService);
+  authService:AuthService=inject(AuthService);
   detalleDelProducto!: Product;
   constructor()
   {
@@ -22,6 +26,24 @@ export class DetallesComponent {
       data=>this.detalleDelProducto=data
 
     )
+  }
+  aniadirCarrito() {
+    const newProduct = {
+      productId: this.detalleDelProducto.id,
+      quantity: 1 // Puedes ajustar la cantidad según necesites
+    };
+    const userId =this.authService.getUser().id;
+
+    this.carritoService.agregarProductoAlCarritoMasReciente(newProduct, userId).subscribe(
+      () => {
+        console.log('Producto agregado al carrito exitosamente.');
+        // Aquí puedes agregar lógica adicional después de agregar el producto al carrito, como redireccionar al carrito o mostrar un mensaje de éxito
+      },
+      error => {
+        console.error('Error al agregar producto al carrito:', error);
+        // Aquí puedes manejar el error, como mostrar un mensaje de error al usuario
+      }
+    );
   }
 
 }
