@@ -59,6 +59,7 @@ export class SignUpComponent implements OnInit {
       this.userService.agregarUsuario(newUser).subscribe(
         response => {
           console.log('User registered successfully', response);
+          alert("Se registro el usuario");
         },
         error => {
           console.error('There was an error!', error);

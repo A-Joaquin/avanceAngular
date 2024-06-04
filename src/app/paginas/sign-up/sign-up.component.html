@@ -1,90 +1,106 @@
 <div class="sign-up-form">
   <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
-      <h1>Sign Up</h1>
-      <div class="form-section">
-          <div class="form-group">
-              <label for="username">Username</label>
-              <input id="username" formControlName="username" type="text">
-              <div *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched">
-                  Username is required.
-              </div>
-          </div>
-
-          <div class="form-group">
-              <label for="email">Email</label>
-              <input id="email" formControlName="email" type="email">
-              <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
-                  Enter a valid email.
-              </div>
-          </div>
-
-          <div class="form-group">
-              <label for="password">Password</label>
-              <input id="password" formControlName="password" type="password">
-              <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
-                  Password is required (min 6 characters).
-              </div>
-          </div>
-
-          <div class="form-group">
-              <label for="firstname">First Name</label>
-              <input id="firstname" formControlName="firstname" type="text">
-              <div *ngIf="signupForm.get('firstname')?.invalid && signupForm.get('firstname')?.touched">
-                  First Name is required.
-              </div>
-          </div>
-
-          <div class="form-group">
-              <label for="lastname">Last Name</label>
-              <input id="lastname" formControlName="lastname" type="text">
-              <div *ngIf="signupForm.get('lastname')?.invalid && signupForm.get('lastname')?.touched">
-                  Last Name is required.
-              </div>
-          </div>
+    <h1>Sign Up</h1>
+    <div class="form-section">
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input id="username" formControlName="username" type="text">
+        <div *ngIf="signupForm.get('username')?.invalid && signupForm.get('username')?.touched">
+          Username is required.
+        </div>
       </div>
 
-      <div class="form-section">
-          <div class="form-group">
-              <label for="city">City</label>
-              <input id="city" formControlName="city" type="text">
-              <div *ngIf="signupForm.get('city')?.invalid && signupForm.get('city')?.touched">
-                  City is required.
-              </div>
-          </div>
-
-          <div class="form-group">
-              <label for="street">Street</label>
-              <input id="street" formControlName="street" type="text">
-              <div *ngIf="signupForm.get('street')?.invalid && signupForm.get('street')?.touched">
-                  Street is required.
-              </div>
-          </div>
-
-          <div class="form-group">
-              <label for="number">Number</label>
-              <input id="number" formControlName="number" type="text">
-              <div *ngIf="signupForm.get('number')?.invalid && signupForm.get('number')?.touched">
-                  Number is required.
-              </div>
-          </div>
-
-          <div class="form-group">
-              <label for="zipcode">Zip Code</label>
-              <input id="zipcode" formControlName="zipcode" type="text">
-              <div *ngIf="signupForm.get('zipcode')?.invalid && signupForm.get('zipcode')?.touched">
-                  Zip Code is required.
-              </div>
-          </div>
-
-          <div class="form-group">
-              <label for="phone">Phone</label>
-              <input id="phone" formControlName="phone" type="text">
-              <div *ngIf="signupForm.get('phone')?.invalid && signupForm.get('phone')?.touched">
-                  Phone is required.
-              </div>
-          </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" formControlName="email" type="email">
+        <div *ngIf="signupForm.get('email')?.invalid && signupForm.get('email')?.touched">
+          Enter a valid email.
+        </div>
       </div>
 
-      <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input id="password" formControlName="password" type="password">
+        <div *ngIf="signupForm.get('password')?.invalid && signupForm.get('password')?.touched">
+          Password is required (min 6 characters).
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="firstname">First Name</label>
+        <input id="firstname" formControlName="firstname" type="text">
+        <div *ngIf="signupForm.get('firstname')?.invalid && signupForm.get('firstname')?.touched">
+          First Name is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="lastname">Last Name</label>
+        <input id="lastname" formControlName="lastname" type="text">
+        <div *ngIf="signupForm.get('lastname')?.invalid && signupForm.get('lastname')?.touched">
+          Last Name is required.
+        </div>
+      </div>
+    </div>
+
+    <div class="form-section">
+      <div class="form-group">
+        <label for="city">City</label>
+        <input id="city" formControlName="city" type="text">
+        <div *ngIf="signupForm.get('city')?.invalid && signupForm.get('city')?.touched">
+          City is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="street">Street</label>
+        <input id="street" formControlName="street" type="text">
+        <div *ngIf="signupForm.get('street')?.invalid && signupForm.get('street')?.touched">
+          Street is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="number">Number</label>
+        <input id="number" formControlName="number" type="text">
+        <div *ngIf="signupForm.get('number')?.invalid && signupForm.get('number')?.touched">
+          Number is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="zipcode">Zip Code</label>
+        <input id="zipcode" formControlName="zipcode" type="text">
+        <div *ngIf="signupForm.get('zipcode')?.invalid && signupForm.get('zipcode')?.touched">
+          Zip Code is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="lat">Latitude</label>
+        <input id="lat" formControlName="lat" type="text">
+        <div *ngIf="signupForm.get('lat')?.invalid && signupForm.get('lat')?.touched">
+          Latitude is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="long">Longitude</label>
+        <input id="long" formControlName="long" type="text">
+        <div *ngIf="signupForm.get('long')?.invalid && signupForm.get('long')?.touched">
+          Longitude is required.
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">Phone</label>
+        <input id="phone" formControlName="phone" type="text">
+        <div *ngIf="signupForm.get('phone')?.invalid && signupForm.get('phone')?.touched">
+          Phone is required.
+        </div>
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="signupForm.invalid">Sign Up</button>
   </form>
 </div>
