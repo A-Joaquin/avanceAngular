@@ -1,48 +1,32 @@
 <div class="perfil-container">
-    <form [formGroup]="perfilForm">
-        <div>
-          <label for="email">Email</label>
-          <input id="email" formControlName="email" readonly>
-        </div>
-        <div>
-          <label for="username">Username</label>
-          <input id="username" formControlName="username" readonly>
-        </div>
-        <div>
-          <label for="password">Password</label>
-          <input id="password" type="password" formControlName="password" readonly>
-        </div>
-        <div>
-          <label for="firstname">First Name</label>
-          <input id="firstname" formControlName="firstname" readonly>
-        </div>
-        <div>
-          <label for="lastname">Last Name</label>
-          <input id="lastname" formControlName="lastname" readonly>
-        </div>
-        <div>
-          <label for="city">City</label>
-          <input id="city" formControlName="city" readonly>
-        </div>
-        <div>
-          <label for="street">Street</label>
-          <input id="street" formControlName="street" readonly>
-        </div>
-        <div>
-          <label for="number">Number</label>
-          <input id="number" formControlName="number" readonly>
-        </div>
-        <div>
-          <label for="zipcode">Zipcode</label>
-          <input id="zipcode" formControlName="zipcode" readonly>
-        </div>
-        <div>
-          <label for="phone">Phone</label>
-          <input id="phone" formControlName="phone" readonly>
-        </div>
-    </form>
-    <a [routerLink]="['/perfil']">Editar</a>
-    <div *ngIf="errorMessage" class="error-message">
-      {{ errorMessage }}
-    </div>
+  <div class="perfil-header">
+      <img src="https://prints.ultracoloringpages.com/c99dc7e3eae4271593d51a4e8e336571.png" alt="Foto de perfil" class="imagen">
+      <h1>Perfil de {{ perfilForm.value.username }}</h1>
   </div>
+  <p class="subtitle">Just cooler than cool am I. Citizen of the World, Equality for All, Film Addict.</p>
+  <div class="perfil-content">
+      <div class="perfil-section">
+          <h2>Información Personal</h2>
+          <p><strong>Email:</strong> {{ perfilForm.value.email }}</p>
+          <p><strong>Username:</strong> {{ perfilForm.value.username }}</p>
+          <p><strong>Password:</strong> *******</p>
+          <p><strong>First Name:</strong> {{ perfilForm.value.firstname }}</p>
+          <p><strong>Last Name:</strong> {{ perfilForm.value.lastname }}</p>
+      </div>
+      <div class="perfil-section">
+          <h2>Dirección</h2>
+          <p><strong>City:</strong> {{ perfilForm.value.city }}</p>
+          <p><strong>Street:</strong> {{ perfilForm.value.street }}</p>
+          <p><strong>Number:</strong> {{ perfilForm.value.number }}</p>
+          <p><strong>Zipcode:</strong> {{ perfilForm.value.zipcode }}</p>
+      </div>
+      <div class="perfil-section">
+          <h2>Contacto</h2>
+          <p><strong>Phone:</strong> {{ perfilForm.value.phone }}</p>
+      </div>
+  </div>
+  <a class="editar-perfil" [routerLink]="['/perfil']">Editar Perfil</a>
+  <div *ngIf="errorMessage" class="error-message">
+    {{ errorMessage }}
+  </div>
+</div>

@@ -47,6 +47,7 @@ export class CartComponent implements OnInit {
       this.cartService.eliminarProductoDelCarritoMasReciente(this.detalleDelProducto.id, idUser).subscribe(
         (updatedCart: Cart) => {
           console.log('Producto eliminado del carrito:', updatedCart);
+          alert("Se elimino el producto del carrito");
           // Aquí puedes actualizar el estado de tu componente, como volver a cargar el carrito
         },
         (error: any) => {

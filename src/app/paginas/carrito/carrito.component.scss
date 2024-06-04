@@ -1,0 +1,46 @@
+.carritos-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.carrito {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.carrito h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.carrito h3 {
+    font-size: 1.2em;
+    margin-bottom: 5px;
+}
+
+.carrito p {
+    margin-bottom: 5px;
+}
+
+.carrito ul {
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.carrito ul li {
+    margin-bottom: 5px;
+}
+
+.carrito ul li:last-child {
+    margin-bottom: 0;
+}
+
+.no-carritos {
+    text-align: center;
+    font-style: italic;
+    color: #888;
+}

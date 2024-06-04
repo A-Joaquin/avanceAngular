@@ -1,48 +1,52 @@
 <div class="perfil-container">
-  <form [formGroup]="perfilForm" (ngSubmit)="actualizarPerfil()">
-    <div class="form-group">
-      <label for="email">Email:</label>
-      <input type="text" id="email" formControlName="email" required>
+  <div class="form-group"><div class="perfil-container">
+    <form [formGroup]="perfilForm" (ngSubmit)="actualizarPerfil()">
+      <h1>Actualizar Perfil</h1>
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="text" id="email" formControlName="email" required>
+      </div>
+      <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" id="username" formControlName="username" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" id="password" formControlName="password" required>
+      </div>
+      <div class="form-group">
+        <label for="firstname">First Name:</label>
+        <input type="text" id="firstname" formControlName="firstname" required>
+      </div>
+      <div class="form-group">
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" formControlName="lastname" required>
+      </div>
+      <div class="form-group">
+        <label for="city">City:</label>
+        <input type="text" id="city" formControlName="city" required>
+      </div>
+      <div class="form-group">
+        <label for="street">Street:</label>
+        <input type="text" id="street" formControlName="street" required>
+      </div>
+      <div class="form-group">
+        <label for="number">Number:</label>
+        <input type="text" id="number" formControlName="number" required>
+      </div>
+      <div class="form-group">
+        <label for="zipcode">Zipcode:</label>
+        <input type="text" id="zipcode" formControlName="zipcode" required>
+      </div>
+      <div class="form-group">
+        <label for="phone">Phone:</label>
+        <input type="text" id="phone" formControlName="phone" required>
+      </div>
+      <button type="submit" class="btn">Actualizar</button>
+    </form>
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
     </div>
-    <div class="form-group">
-      <label for="username">Username:</label>
-      <input type="text" id="username" formControlName="username" required>
-    </div>
-    <div class="form-group">
-      <label for="password">Password:</label>
-      <input type="password" id="password" formControlName="password" required>
-    </div>
-    <div class="form-group">
-      <label for="firstname">First Name:</label>
-      <input type="text" id="firstname" formControlName="firstname" required>
-    </div>
-    <div class="form-group">
-      <label for="lastname">Last Name:</label>
-      <input type="text" id="lastname" formControlName="lastname" required>
-    </div>
-    <div class="form-group">
-      <label for="city">City:</label>
-      <input type="text" id="city" formControlName="city" required>
-    </div>
-    <div class="form-group">
-      <label for="street">Street:</label>
-      <input type="text" id="street" formControlName="street" required>
-    </div>
-    <div class="form-group">
-      <label for="number">Number:</label>
-      <input type="text" id="number" formControlName="number" required>
-    </div>
-    <div class="form-group">
-      <label for="zipcode">Zipcode:</label>
-      <input type="text" id="zipcode" formControlName="zipcode" required>
-    </div>
-    <div class="form-group">
-      <label for="phone">Phone:</label>
-      <input type="text" id="phone" formControlName="phone" required>
-    </div>
-    <button type="submit" class="btn">Actualizar</button>
-  </form>
-  <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
   </div>
+  
 </div>

@@ -37,6 +37,7 @@ export class DetallesComponent {
     this.carritoService.agregarProductoAlCarritoMasReciente(newProduct, userId).subscribe(
       () => {
         console.log('Producto agregado al carrito exitosamente.');
+        alert("Producto añadido al carrito");
         // Aquí puedes agregar lógica adicional después de agregar el producto al carrito, como redireccionar al carrito o mostrar un mensaje de éxito
       },
       error => {

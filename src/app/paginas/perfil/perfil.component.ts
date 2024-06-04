@@ -4,6 +4,7 @@ import { AuthService } from '../../services/serviceAuth/auth.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { User } from '../../interfaces/user';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-perfil-usuario',
@@ -17,6 +18,7 @@ export class PerfilComponent implements OnInit {
   usuarioService: UsuarioService = inject(UsuarioService);
   authService: AuthService = inject(AuthService);
   formBuilder: FormBuilder = inject(FormBuilder);
+  router: Router=inject(Router);
   errorMessage: string = '';
 
   constructor() {
@@ -86,6 +88,8 @@ export class PerfilComponent implements OnInit {
         this.usuarioService.actualizarUsuario(userId, updatedUser).subscribe(
           updatedUser => {
             console.log('Usuario actualizado:', updatedUser);
+            alert("Se actualizo el perfil");
+            this.router.navigate(['/vista-perfil']);
           },
           error => {
             console.error('Error al actualizar el usuario:', error);

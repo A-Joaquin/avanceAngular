@@ -21,6 +21,7 @@ export class ProductoComponent {
   }
   borrarProducto(id: number) {
     this.productosService.eliminarProductoPorId(id).subscribe(() => {
+      alert("Se elimino el producto");
       // Una vez que se elimina el producto, actualizamos la lista de productos
       this.productosService.obtenerTodosLosProductos().subscribe(productos => {
         this.productos = productos;

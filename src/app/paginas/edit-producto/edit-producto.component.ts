@@ -59,7 +59,8 @@ export class EditProductoComponent implements OnInit {
       this.productoService.actualizarProducto(this.productId, updatedProduct).subscribe(
         () => {
           console.log('Product updated successfully');
-          this.router.navigate(['/productos']); // Ruta de ejemplo, cambia según tu configuración
+          alert("Se edito el producto");
+          this.router.navigate(['/tienda']); // Ruta de ejemplo, cambia según tu configuración
         },
         error => {
           console.error('Error updating product', error);
