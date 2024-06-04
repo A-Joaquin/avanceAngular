@@ -1,30 +1,60 @@
-.contenedor-detalle{
-    display: flex;
-    justify-content: center;
-    .imagen{
-      padding: 15px;
-      flex-basis: 20%;
-      img{
-        display: block;
-        max-width: 100%;
-      }
-    }
-    .descripcion{
-      padding: 15px;
-      flex-basis: 40%;
-    }
-   }
-   
-   
-   button {
-    color: #000000;
-    border-color: var(--color-1);
-    background-color: var(--color-1);
-    padding: 15px;
-   }
-   button:hover
-   {
-    color:#ffffff;
-    background-color: #000000;
-   }
-   
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+.contenedor-detalle {
+  display: flex;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  max-width: 800px;
+  margin: 20px auto;
+}
+
+.imagen img {
+  width: 100%;
+  height: auto;
+  max-width: 400px;
+}
+
+.descripcion {
+  padding: 20px;
+  flex: 1;
+}
+
+.descripcion h2 {
+  margin-top: 0;
+  color: #333;
+}
+
+.descripcion p {
+  margin: 10px 0;
+  color: #666;
+}
+
+.descripcion s {
+  color: #999;
+}
+
+.descripcion strong {
+  color: #e74c3c;
+}
+
+.descripcion button {
+  background-color: #074e28;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.descripcion button:hover {
+  background-color: #2f6f4a;
+}
