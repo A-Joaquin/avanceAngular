@@ -11,6 +11,8 @@ import { SignUpComponent } from './paginas/sign-up/sign-up.component';
 import { PerfilComponent } from './paginas/perfil/perfil.component';
 import { AgregarProductoComponent } from './paginas/agregar-producto/agregar-producto.component';
 import { VistaPerfilComponent } from './paginas/vista-perfil/vista-perfil.component';
+import { EditProductoComponent } from './paginas/edit-producto/edit-producto.component';
+
 export const routes: Routes = [
     {path: 'inicio',component:InicioComponent},
     {path: 'tienda',component:TiendaComponent},
@@ -23,7 +25,7 @@ export const routes: Routes = [
     {path: 'vista-perfil', component: VistaPerfilComponent},
     { path: 'perfil', component: PerfilComponent },
     { path: 'agregar-producto', component: AgregarProductoComponent },
- 
+    { path: 'edit-producto/:id', component: EditProductoComponent },
     {path: '',redirectTo:'login',pathMatch:'full'},
     {path: '**', component:PaginaNoEncontradaComponent}
 ];
