@@ -1,16 +1,18 @@
 <div class="contenedor-producto">
   <h2 class="titulo">{{producto.title}}</h2>
   <div class="contenedor-imagen">
-    <img src="{{producto.image}}" alt="">
+    <img src="{{producto.image}}" alt="{{producto.title}}">
   </div>
-  <div>
+  <div class="clasificacion">
     <span class="clasificacion-titulo">Clasificación: </span><span>{{producto.rating.rate}}</span>
   </div>
-  <p>{{producto.description}}</p>
-  <div>
-    <span>Precio:</span><span>{{producto.price}}</span>
+  <p class="descripcion">{{producto.description}}</p>
+  <div class="precio">
+    <span>Precio: </span><span>{{producto.price}}</span>
   </div>
-  <a [routerLink]="['/detalles',producto.id]">Detalles</a>
-  <button (click)="borrarProducto(producto.id)">borrar</button>
-  <a [routerLink]="['/edit-producto', producto.id]">Editar</a>
+  <div class="acciones">
+    <a class="detalles" [routerLink]="['/detalles', producto.id]">Detalles</a>
+    <button class="borrar" (click)="borrarProducto(producto.id)">Borrar</button>
+    <a class="editar" [routerLink]="['/edit-producto', producto.id]">Editar</a>
+  </div>
 </div>
