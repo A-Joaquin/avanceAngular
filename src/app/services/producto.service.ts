@@ -17,10 +17,18 @@ export class ProductoService {
   }
   obtenerProductoPorId(id:number)
   {
-    return this.http.get<Product>("https://fakestoreapi.com/products/" + id);
+    return this.http.get<Product>("https://fakestoreapi.com/products/" + id, {});
   }
+
   eliminarProductoPorId(id: number): Observable<any> {
-    return this.http.delete('https://fakestoreapi.com/products/' + id);
+    return this.http.delete('https://fakestoreapi.com/products/' + id, {});
+  }
+
+//   agregarProductoPorId(id: number): Observable<any> {
+//     return this.http.post('https://fakestoreapi.com/products/' + id, {});
+// }
+  agregarProductoPorId(product: Product): Observable<Product> {
+    return this.http.post<Product>('https://fakestoreapi.com/products/', product);
   }
 
 }

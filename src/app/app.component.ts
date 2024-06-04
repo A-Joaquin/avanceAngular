@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Product } from './interfaces/product';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,9 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'mi-tienda';
-}
+  nuevoProducto: Product | null = null;
+
+  onProductoAgregado(product: Product): void {
+    this.nuevoProducto = product;
+  }
+} 

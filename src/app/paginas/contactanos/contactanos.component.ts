@@ -7,6 +7,7 @@ import { Component,OnInit,OnDestroy, input, Input } from '@angular/core';
   templateUrl: './contactanos.component.html',
   styleUrl: './contactanos.component.scss'
 })
+
 export class ContactanosComponent implements OnInit,OnDestroy {
 
   //constructor para inicializar valores

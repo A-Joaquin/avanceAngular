@@ -5,5 +5,8 @@
   <a [routerLink]="['contactanos']" [routerLinkActive]="['active']">Contactanos</a>
   <a [routerLink]="['carrito']" [routerLinkActive]="['active']">Carrito</a>
   <a [routerLink]="['sign-up']" [routerLinkActive]="['active']">Registrarse</a>
+  <a [routerLink]="['agregar-producto']" [routerLinkActive]="['active']">Agregar producto</a>
+  <app-agregar-producto (productoAgregado)="onProductoAgregado($event)"></app-agregar-producto>
+  <app-tienda [nuevoProducto]="nuevoProducto"></app-tienda>
 </div>
 <router-outlet/>

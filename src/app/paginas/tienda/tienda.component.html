@@ -1,4 +1,4 @@
-<div *ngIf="usuario">
+<!-- <div *ngIf="usuario">
   <h1>Bienvenido, {{ usuario }}</h1>
 </div>
 
@@ -10,6 +10,21 @@
     } @empty {
       <p>No existen productos</p>
     }
+</div> -->
+
+<div *ngIf="usuario">
+  <h1>Bienvenido, {{ usuario }}</h1>
 </div>
 
-   
+<!-- Formulario para agregar un nuevo producto -->
+
+<!-- Contenedor de productos -->
+<div class="contenedor-productos">
+  <div *ngFor="let producto of listaDeProductos; trackBy: trackById">
+    <app-producto [producto]="producto"></app-producto>
+  </div>
+  <p *ngIf="listaDeProductos.length === 0">No existen productos</p>
+</div>
+
+<app-agregar-producto (productoAgregado)="onProductoAgregado($event)"></app-agregar-producto>
+

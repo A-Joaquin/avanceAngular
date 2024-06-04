@@ -8,6 +8,8 @@ import { DetallesComponent } from './paginas/detalles/detalles.component';
 import { CarritoComponent } from './paginas/carrito/carrito.component';
 import { LoginComponent } from './paginas/login/login.component';
 import { SignUpComponent } from './paginas/sign-up/sign-up.component';
+import { AgregarProductoComponent } from './paginas/agregar-producto/agregar-producto.component';
+
 
 export const routes: Routes = [
     {path: 'inicio',component:InicioComponent},
@@ -20,5 +22,6 @@ export const routes: Routes = [
     {path: 'login',component:LoginComponent},
     
     {path: '',redirectTo:'login',pathMatch:'full'},
+    { path: 'agregar-producto', component: AgregarProductoComponent },
     {path: '**', component:PaginaNoEncontradaComponent}
 ];
