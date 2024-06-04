@@ -1,0 +1,149 @@
+/* Estilos generales */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2em;
+  }
+  
+  .section {
+    margin-bottom: 4em;
+  }
+  
+  h2 {
+    font-size: 2em;
+    color: #345995; /* Azul oscuro */
+    margin-bottom: 0.5em;
+  }
+  
+  p {
+    font-size: 1.2em;
+    color: #667699; /* Azul medio */
+    line-height: 1.6;
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+  
+    li {
+      font-size: 1.2em;
+      color: #667699; /* Azul medio */
+      margin-bottom: 0.5em;
+      padding-left: 1.5em;
+      position: relative;
+  
+      &:before {
+        content: '✓';
+        color: #1e5f74; /* Azul oscuro */
+        position: absolute;
+        left: 0;
+      }
+    }
+  }
+  
+  /* Estilos de la sección "Nosotros" */
+  #nosotros {
+    .hero {
+      background: url("./teaamwork.jpg") no-repeat center center;
+      background-size: cover;
+      color: white;
+      text-align: center;
+      padding: 5em 2em;
+  
+      h1 {
+        font-size: 3em;
+        margin: 0;
+      }
+  
+      p {
+        font-size: 1.5em;
+        margin-top: 0.5em;
+      }
+    }
+  
+    .nosotros {
+      background-color: #ecf2f9; /* Azul claro */
+      padding: 2em;
+      border-radius: 10px;
+      text-align: center;
+  
+      h2 {
+        color: #345995; /* Azul oscuro */
+        margin-bottom: 1em;
+      }
+  
+      p {
+        color: #667699; /* Azul medio */
+        line-height: 1.6;
+        margin-bottom: 1em;
+      }
+    }
+  }
+  
+  /* Estilos del equipo */
+  .team {
+    .team-members {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+  
+    .team-member {
+      flex: 1 1 30%;
+      text-align: center;
+      margin-bottom: 2em;
+  
+      img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        margin-bottom: 1em;
+      }
+  
+      h3 {
+        font-size: 1.5em;
+        color: #345995; /* Azul oscuro */
+        margin: 0;
+      }
+  
+      p {
+        font-size: 1.2em;
+        color: #1e5f74; /* Azul oscuro */
+        margin: 0.5em 0 0;
+      }
+    }
+  }
+  
+  /* Estilos de testimonios */
+  .testimonials {
+    .testimonial {
+      font-style: italic;
+      color: #667699; /* Azul medio */
+      border-left: 4px solid #1e5f74; /* Azul oscuro */
+      padding-left: 1em;
+      margin-bottom: 1em;
+    }
+  }
+  
+  /* Estilos de la galería */
+  .gallery {
+    .gallery-images {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1em;
+  
+      img {
+        width: 10cm;
+        max-width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+    }
+  }
+  
