@@ -176,15 +176,19 @@ def get_carrito(id):
 
 @app.route('/carritos/usuario/<int:userId>', methods=['GET'])
 def get_carritos_by_user(userId):
-    # Buscar todos los carritos que tengan el userId especificado
-    carritos_list = list(carritos.find({'userId': userId}))
-    for carrito in carritos_list:
-        carrito['_id'] = str(carrito['_id'])  # Convertir el ObjectId a string
+    try:
+        # Buscar todos los carritos que tengan el userId especificado
+        carritos_list = list(carritos.find({'userId': userId}))
 
-    if carritos_list:
+        # Convertir ObjectId a string
+        for carrito in carritos_list:
+            carrito['_id'] = str(carrito['_id'])
+
+        # Devuelve la lista de carritos, aunque esté vacía
         return jsonify(carritos_list), 200
-    else:
-        return jsonify({'message': 'No se encontraron carritos para este usuario'}), 404
+    except Exception as e:
+        return jsonify({'message': str(e)}), 500
+
     
 
 

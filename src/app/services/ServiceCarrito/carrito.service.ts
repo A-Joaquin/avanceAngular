@@ -42,11 +42,11 @@ export class CarritoService {
   }
 
 
-  obtenerCarritoMasReciente(userId: number): Observable<Cart> {
+  obtenerCarritoMasReciente(userId: number): Observable<Cart | null> {
     return this.obtenerCarritosDeUsuario(userId).pipe(
       map(carritos => {
         if (carritos.length === 0) {
-          throw new Error('No hay carritos para este usuario.');
+          return null; // No hay carritos para este usuario
         }
         // Obtener el último carrito del array
         return carritos[carritos.length - 1];
@@ -58,21 +58,35 @@ export class CarritoService {
     );
   }
 
+  crearCarrito(cart: Cart): Observable<Cart> {
+    return this.http.post<Cart>(this.apiUrl, cart).pipe(
+      catchError(err => {
+        console.error('Error al crear carrito:', err);
+        return throwError(err);
+      })
+    );
+  }
+
   agregarProductoAlCarritoMasReciente(newProduct: { productId: number, quantity: number }, userId: number): Observable<Cart> {
     return this.obtenerCarritoMasReciente(userId).pipe(
-      catchError(err => {
-        console.error('Error al obtener el carrito más reciente:', err);
-        return throwError(err);
-      }),
       mergeMap(carritoMasReciente => {
+        if (!carritoMasReciente) {
+          // Si no hay carrito, crearlo
+          const newCart: Cart = {
+            id: 0, // Asume que el backend generará este valor
+            userId: userId,
+            products: [{ juegoId: newProduct.productId, quantity: newProduct.quantity }]
+          };
+          return this.crearCarrito(newCart);
+        }
+
         // Eliminar _id antes de enviar la solicitud
         const { _id, ...cartDataWithoutId } = carritoMasReciente;
 
         const updatedProducts = [...cartDataWithoutId.products, { juegoId: newProduct.productId, quantity: newProduct.quantity }];
         const updatedCart = {
           ...cartDataWithoutId,
-          products: updatedProducts,
-          userId: userId
+          products: updatedProducts
         };
 
         console.log("Carrito actualizado sin _id:", updatedCart);
@@ -81,37 +95,55 @@ export class CarritoService {
         console.log('Enviando datos al endpoint:', url);
 
         return this.http.put<Cart>(url, updatedCart).pipe(
-          catchError((err: any) => {
+          catchError(err => {
             console.error('Error al agregar producto al carrito más reciente:', err);
             return throwError(err);
           })
         );
+      }),
+      catchError(err => {
+        console.error('Error en el proceso de agregar producto al carrito:', err);
+        return throwError(err);
       })
     );
-}
+  }
 
   
   
 
   eliminarProductoDelCarritoMasReciente(productId: number, userId: number): Observable<Cart> {
     return this.obtenerCarritoMasReciente(userId).pipe(
-      mergeMap(carritoMasReciente => {
-        const updatedProducts = carritoMasReciente.products.filter(product => product.juegoId !== productId);
-        const updatedCart = {
-          ...carritoMasReciente,
-          products: updatedProducts,
-          userId: userId
-        };
-        console.log(updatedCart)
-        const url = `${this.apiUrl}/${carritoMasReciente.id}`;
-        return this.http.put<Cart>(url, updatedCart).pipe(
-          catchError(err => {
-            console.error('Error al eliminar producto del carrito más reciente:', err);
+        mergeMap(carritoMasReciente => {
+            if (carritoMasReciente === null) {
+                // Manejar el caso cuando no hay carrito reciente para el usuario
+                return throwError(new Error('No hay carritos para este usuario.'));
+            }
+
+            const updatedProducts = carritoMasReciente.products.filter(product => product.juegoId !== productId);
+            const { _id, ...cartDataWithoutId } = carritoMasReciente; // Eliminar _id
+
+            const updatedCart = {
+                ...cartDataWithoutId,
+                products: updatedProducts,
+                userId: userId
+            };
+
+            console.log(updatedCart);
+
+            const url = `${this.apiUrl}/${cartDataWithoutId.id}`;
+            return this.http.put<Cart>(url, updatedCart).pipe(
+                catchError(err => {
+                    console.error('Error al eliminar producto del carrito más reciente:', err);
+                    return throwError(err);
+                })
+            );
+        }),
+        catchError(err => {
+            console.error('Error en el proceso de eliminar producto del carrito:', err);
             return throwError(err);
-          })
-        );
-      })
+        })
     );
-  }
+}
+
 
 }
