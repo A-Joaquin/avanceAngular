@@ -1,6 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../../interfaces/user';
+import { User } from '../../interfaces/juegos/user';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 })
 export class UsuarioService {
 
-  private apiUrl = 'https://fakestoreapi.com/users';
+  private apiUrl = 'http://127.0.0.1:5000/usuarios';
 
   constructor(private http: HttpClient) { }
 
@@ -33,7 +33,7 @@ export class UsuarioService {
   }
 
   agregarUsuario(user: Omit<User, 'id'>): Observable<User> {
-    return this.http.post<User>('https://fakestoreapi.com/users', user);
+    return this.http.post<User>('http://127.0.0.1:5000/usuarios', user);
   }
 
   actualizarUsuario(idUser: number, user: User): Observable<User> {

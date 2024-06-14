@@ -1,9 +1,9 @@
-import { Component, Input ,inject} from '@angular/core';
+import { Component, Input ,inject,Output,EventEmitter} from '@angular/core';
 import { Product } from '../../interfaces/product';
 import { Router, RouterLink } from '@angular/router';
 import { ProductoService } from '../../services/producto.service';
 import { TiendaComponent } from '../../paginas/tienda/tienda.component';
-
+import { Juego } from '../../interfaces/juegos/juego';
 @Component({
   selector: 'app-producto',
   standalone: true,
@@ -12,20 +12,18 @@ import { TiendaComponent } from '../../paginas/tienda/tienda.component';
   styleUrl: './producto.component.scss'
 })
 export class ProductoComponent {
-  @Input() producto!:Product; //Que es?
+  @Output() productoEliminado = new EventEmitter<number>();
+  @Input() producto!:Juego; //Que es?
   productosService: ProductoService = inject(ProductoService);
-  
-  productos: Product[] = [];
+  router: Router=inject(Router);
+  productos: Juego[] = [];
   constructor()
   {
   }
+
   borrarProducto(id: number) {
     this.productosService.eliminarProductoPorId(id).subscribe(() => {
-      alert("Se elimino el producto");
-      // Una vez que se elimina el producto, actualizamos la lista de productos
-      this.productosService.obtenerTodosLosProductos().subscribe(productos => {
-        this.productos = productos;
-      });
+      this.productoEliminado.emit(id);  
     });
   }
 }

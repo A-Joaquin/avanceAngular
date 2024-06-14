@@ -3,40 +3,39 @@ import { Product } from '../interfaces/product';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map as rxMap } from 'rxjs/operators';
-
+import { Product2 } from '../interfaces/product2';
+import { Juego } from '../interfaces/juegos/juego';
 @Injectable({
   providedIn: 'root'
 })
 export class ProductoService {
   private apiUrl = 'https://fakestoreapi.com/products';
-
+  private apiUrl2 = 'http://localhost:5000/juegos';
   constructor(private http: HttpClient) { }
 
-  obtenerTodosLosProductos(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl).pipe(
-      rxMap((productos: Product[]) => productos.reverse())
-    );
+  obtenerTodosLosProductos(): Observable<Juego[]> {
+    return this.http.get<Juego[]>(`${this.apiUrl2}`);
   }
 
-  obtenerProductoPorId(id: number): Observable<Product> {
-    return this.http.get<Product>(`${this.apiUrl}/${id}`);
+  obtenerProductoPorId(id: number): Observable<Juego> {
+    return this.http.get<Juego>(`${this.apiUrl2}/${id}`);
   }
 
   eliminarProductoPorId(id: number): Observable<any> {
-    return this.http.delete(`${this.apiUrl}/${id}`);
+    return this.http.delete(`${this.apiUrl2}/${id}`);
   }
 
-  agregarProducto(product: Product): Observable<Product> {
-    return this.http.post<Product>(this.apiUrl, product);
+  agregarProducto(product: Juego): Observable<Juego> {
+    return this.http.post<Juego>(`${this.apiUrl2}`, product);
   }
 
-  actualizarProducto(id: number, product: Product): Observable<Product> {
-    return this.http.put<Product>(`${this.apiUrl}/${id}`, product, {
+  actualizarProducto(id: number, product: Juego): Observable<Juego> {
+    return this.http.put<Juego>(`${this.apiUrl2}/${id}`, product, {
       headers: { 'Content-Type': 'application/json' }
     });
   }
 
-  modificarProducto(id: number, partialProduct: Partial<Product>): Observable<Product> {
+  modificarProducto(id: number, partialProduct: Partial<Juego>): Observable<Juego> {
     return this.http.patch<Product>(`${this.apiUrl}/${id}`, partialProduct, {
       headers: { 'Content-Type': 'application/json' }
     });

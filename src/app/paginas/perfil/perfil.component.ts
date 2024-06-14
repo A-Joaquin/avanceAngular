@@ -3,7 +3,7 @@ import { UsuarioService } from '../../services/serviceUsuario/usuario.service';
 import { AuthService } from '../../services/serviceAuth/auth.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { User } from '../../interfaces/user';
+import { User } from '../../interfaces/juegos/user';
 import { Router } from '@angular/router';
 
 @Component({

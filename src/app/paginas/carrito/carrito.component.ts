@@ -1,5 +1,5 @@
 import { Component,OnInit, inject } from '@angular/core';
-import { Cart } from '../../interfaces/cart';
+import { Cart } from '../../interfaces/juegos/carrito';
 import { CarritoService } from '../../services/ServiceCarrito/carrito.service';
 import { CartComponent } from '../../elementos/cart/cart.component';
 import { CommonModule } from '@angular/common';
@@ -25,7 +25,9 @@ export class CarritoComponent implements OnInit {
 
     this.carritoService.obtenerCarritosDeUsuario(this.obteneridUsuario()).subscribe(
       data => {
+        console.log(data);
         this.carritos = data;
+        console.log("CARRITOS",this.carritos.length);
       },
       error => console.log("Hubo un error:", error),
       () => console.log("Finalizado")

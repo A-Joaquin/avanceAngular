@@ -1,13 +1,13 @@
 import { Component,Input,OnInit, inject, input } from '@angular/core';
-import { Cart, ProductCart } from '../../interfaces/cart';
+import { Cart,JuegoCart } from '../../interfaces/juegos/carrito';
 import { CarritoService } from '../../services/ServiceCarrito/carrito.service';
 import { ProductoService } from '../../services/producto.service';
 import { ProductoComponent } from '../producto/producto.component';
 import { Product } from '../../interfaces/product';
 import { CommonModule } from '@angular/common';
-import { User } from '../../interfaces/user';
+import { User } from '../../interfaces/juegos/user';
 import { AuthService } from '../../services/serviceAuth/auth.service';
-
+import { Juego } from '../../interfaces/juegos/juego';
 @Component({
   selector: 'app-cart',
   standalone: true,
@@ -16,8 +16,8 @@ import { AuthService } from '../../services/serviceAuth/auth.service';
   styleUrl: './cart.component.scss'
 })
 export class CartComponent implements OnInit {
-  @Input() productCart!: ProductCart;
-  detalleDelProducto!: Product;
+  @Input() productCart!: JuegoCart;
+  detalleDelProducto!: Juego;
   productosService: ProductoService=inject(ProductoService);
   cartService: CarritoService=inject(CarritoService);
   userService:AuthService=inject(AuthService);
@@ -26,13 +26,14 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     // Llamar a la función obtenerDetalleProducto en el ngOnInit para inicializar el detalle del producto
     if (this.productCart) {
-      this.obtenerDetalleProducto(this.productCart.productId);
+      console.log(this.productCart);
+      this.obtenerDetalleProducto(this.productCart.juegoId);
     }
   }
 
   obtenerDetalleProducto(id: number): void {
     this.productosService.obtenerProductoPorId(id).subscribe(
-      (data: Product) => {
+      (data: Juego) => {
         this.detalleDelProducto = data;
       },
       (error) => {

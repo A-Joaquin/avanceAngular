@@ -4,7 +4,6 @@
   <h1>Lista de Carritos</h1>
   <div *ngFor="let carrito of carritos" class="carrito">
       <h2>Carrito #{{ carrito.id }}</h2>
-      <p><strong>Fecha:</strong> {{ carrito.date | date }}</p>
       <p><strong>Productos:</strong></p>
       <ul>
           <li *ngFor="let product of carrito.products">

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { UsuarioService } from '../../services/serviceUsuario/usuario.service';
-import { User } from '../../interfaces/user';
+import { User } from '../../interfaces/juegos/user';
 import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-sign-up',
@@ -26,8 +26,6 @@ export class SignUpComponent implements OnInit {
       street: ['', [Validators.required]],
       number: ['', [Validators.required]],
       zipcode: ['', [Validators.required]],
-      lat: ['', [Validators.required]],
-      long: ['', [Validators.required]],
       phone: ['', [Validators.required]]
     });
   }
@@ -46,12 +44,8 @@ export class SignUpComponent implements OnInit {
         address: {
           city: formValues.city,
           street: formValues.street,
-          number: formValues.number,
-          zipcode: formValues.zipcode,
-          geolocation: {
-            lat: formValues.lat,
-            long: formValues.long
-          }
+          number: Number(formValues.number),
+          zipcode: formValues.zipcode 
         },
         phone: formValues.phone
       };

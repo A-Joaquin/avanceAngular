@@ -5,16 +5,19 @@
 <div class="contenedor-productos">
     @for ( producto of listaDeProductos; track producto.id){
       <div>
-        <app-producto [producto]="producto" ></app-producto>
+        <app-producto [producto]="producto" (productoEliminado)="manejarProductoEliminado($event)"></app-producto>
       </div>
     } @empty {
       <p>No existen productos</p>
     }
 </div>
+<!-- Aplicando la clase CSS al componente -->
 
 
 <app-agregar-producto (productoAgregado)="onProductoAgregado($event)"></app-agregar-producto>
 
 
 
-   
+
+
+

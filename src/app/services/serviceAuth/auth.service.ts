@@ -3,7 +3,7 @@ import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { AuthResponse } from '../../interfaces/authResponse';
-import { User } from '../../interfaces/user';
+import { User } from '../../interfaces/juegos/user';
 import { tap, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 
@@ -13,8 +13,8 @@ import {jwtDecode} from 'jwt-decode'; // Ajuste en la importación
 })
 export class AuthService {
 
-  private apiUrl = 'https://fakestoreapi.com/auth/login';
-  private apiUrl2 = 'https://fakestoreapi.com/users';
+  private apiUrl = 'http://127.0.0.1:5000/auth/login';
+  private apiUrl2 = 'http://127.0.0.1:5000/users';
 
   constructor(private http: HttpClient) { }
 
@@ -61,7 +61,7 @@ export class AuthService {
     const token = this.getToken();
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     
-    return this.http.get<User>(`https://fakestoreapi.com/users/${userId}`, { headers })
+    return this.http.get<User>(`http://127.0.0.1:5000/usuarios/${userId}`, { headers })
       .pipe(
         tap(user => {
           this.user = user; // Asignar el valor de usuario

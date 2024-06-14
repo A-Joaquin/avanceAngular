@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Cart } from '../../interfaces/cart';
+import { Cart } from '../../interfaces/juegos/carrito';
 import { Observable, throwError } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 
@@ -8,19 +8,19 @@ import { catchError, map, mergeMap } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CarritoService {
-  private apiUrl = 'https://fakestoreapi.com/carts';
+  private apiUrl = 'http://127.0.0.1:5000/carritos';
 
   constructor(private http: HttpClient) { }
   obtenerTodosLosCarritos(): Observable<Cart[]>
   {
-    return this.http.get<Cart[]>("https://fakestoreapi.com/carts"); //esto es un observable.
+    return this.http.get<Cart[]>(this.apiUrl); //esto es un observable.
   }
   obtenerCarritoPorId(id:number)
   {
-    return this.http.get<Cart>("https://fakestoreapi.com/carts/" + id);
+    return this.http.get<Cart>(this.apiUrl + id);
   }
   eliminarCarritoPorId(id: number): Observable<any> {
-    return this.http.delete('https://fakestoreapi.com/carts/' + id);
+    return this.http.delete(this.apiUrl + id);
   }
   obtenerNcarritos(n:number)
   {
@@ -38,7 +38,7 @@ export class CarritoService {
   }
 
   obtenerCarritosDeUsuario(userId: number): Observable<Cart[]> {
-    return this.http.get<Cart[]>(`https://fakestoreapi.com/carts/user/${userId}`);
+    return this.http.get<Cart[]>(`http://127.0.0.1:5000/carritos/usuario/${userId}`);
   }
 
 
@@ -65,16 +65,22 @@ export class CarritoService {
         return throwError(err);
       }),
       mergeMap(carritoMasReciente => {
-        const updatedProducts = [...carritoMasReciente.products, newProduct];
+        // Eliminar _id antes de enviar la solicitud
+        const { _id, ...cartDataWithoutId } = carritoMasReciente;
+
+        const updatedProducts = [...cartDataWithoutId.products, { juegoId: newProduct.productId, quantity: newProduct.quantity }];
         const updatedCart = {
-          ...carritoMasReciente,
+          ...cartDataWithoutId,
           products: updatedProducts,
           userId: userId
         };
-        
-        const url = updatedCart.id ? `${this.apiUrl}/${updatedCart.id}` : `${this.apiUrl}`;
-        console.log('Body del carrito actualizado:', updatedCart);
-        return this.http.request<Cart>(updatedCart.id ? 'PUT' : 'POST', url, { body: updatedCart }).pipe(
+
+        console.log("Carrito actualizado sin _id:", updatedCart);
+
+        const url = `${this.apiUrl}/${cartDataWithoutId.id}`;
+        console.log('Enviando datos al endpoint:', url);
+
+        return this.http.put<Cart>(url, updatedCart).pipe(
           catchError((err: any) => {
             console.error('Error al agregar producto al carrito más reciente:', err);
             return throwError(err);
@@ -82,26 +88,24 @@ export class CarritoService {
         );
       })
     );
-  }
+}
+
+  
+  
 
   eliminarProductoDelCarritoMasReciente(productId: number, userId: number): Observable<Cart> {
     return this.obtenerCarritoMasReciente(userId).pipe(
-      catchError(err => {
-        console.error('Error al obtener el carrito más reciente:', err);
-        return throwError(err);
-      }),
       mergeMap(carritoMasReciente => {
-        const updatedProducts = carritoMasReciente.products.filter(product => product.productId !== productId);
+        const updatedProducts = carritoMasReciente.products.filter(product => product.juegoId !== productId);
         const updatedCart = {
           ...carritoMasReciente,
           products: updatedProducts,
           userId: userId
         };
-
-        const url = updatedCart.id ? `${this.apiUrl}/${updatedCart.id}` : `${this.apiUrl}`;
-        console.log('Body del carrito actualizado:', updatedCart);
-        return this.http.request<Cart>(updatedCart.id ? 'PUT' : 'POST', url, { body: updatedCart }).pipe(
-          catchError((err: any) => {
+        console.log(updatedCart)
+        const url = `${this.apiUrl}/${carritoMasReciente.id}`;
+        return this.http.put<Cart>(url, updatedCart).pipe(
+          catchError(err => {
             console.error('Error al eliminar producto del carrito más reciente:', err);
             return throwError(err);
           })
