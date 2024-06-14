@@ -7,7 +7,7 @@
       <p><strong>Productos:</strong></p>
       <ul>
           <li *ngFor="let product of carrito.products">
-              <app-cart [productCart]="product"></app-cart>
+              <app-cart [productCart]="product" (productoEliminado)="manejarProductoEliminado($event)"></app-cart>
           </li>
       </ul>
   </div>

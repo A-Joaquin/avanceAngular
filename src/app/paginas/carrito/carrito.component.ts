@@ -38,4 +38,16 @@ export class CarritoComponent implements OnInit {
     return this.authService.getUser().id;
   }
 
+  manejarProductoEliminado(id: number): void {
+    this.carritoService.obtenerCarritosDeUsuario(this.obteneridUsuario()).subscribe(
+      data => {
+        console.log(data);
+        this.carritos = data;
+        console.log("CARRITOS",this.carritos.length);
+      },
+      error => console.log("Hubo un error:", error),
+      () => console.log("Finalizado")
+    );
+  }
+
 }

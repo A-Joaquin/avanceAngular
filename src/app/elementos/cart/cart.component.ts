@@ -1,4 +1,4 @@
-import { Component,Input,OnInit, inject, input } from '@angular/core';
+import { Component,Input,OnInit, inject, input,Output,EventEmitter } from '@angular/core';
 import { Cart,JuegoCart } from '../../interfaces/juegos/carrito';
 import { CarritoService } from '../../services/ServiceCarrito/carrito.service';
 import { ProductoService } from '../../services/producto.service';
@@ -16,6 +16,7 @@ import { Juego } from '../../interfaces/juegos/juego';
   styleUrl: './cart.component.scss'
 })
 export class CartComponent implements OnInit {
+  @Output() productoEliminado = new EventEmitter<number>();
   @Input() productCart!: JuegoCart;
   detalleDelProducto!: Juego;
   productosService: ProductoService=inject(ProductoService);
@@ -47,6 +48,7 @@ export class CartComponent implements OnInit {
     if (idUser !== null) {
       this.cartService.eliminarProductoDelCarritoMasReciente(this.detalleDelProducto.id, idUser).subscribe(
         (updatedCart: Cart) => {
+          this.productoEliminado.emit(this.detalleDelProducto.id); 
           console.log('Producto eliminado del carrito:', updatedCart);
           alert("Se elimino el producto del carrito");
           // Aquí puedes actualizar el estado de tu componente, como volver a cargar el carrito
