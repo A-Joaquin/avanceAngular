@@ -8,5 +8,6 @@
   <a [routerLink]="['agregar-producto']" [routerLinkActive]="['active']">Agregar producto</a>
   <a *ngIf="!isAuthenticated" [routerLink]="['login']" [routerLinkActive]="['active']">Login</a>
   <a href="#" (click)="signOut()" *ngIf="!isNoAuthenticated">Sign Out</a>
+  
 </div>
 <router-outlet/>
