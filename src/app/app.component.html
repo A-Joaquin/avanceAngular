@@ -2,10 +2,11 @@
   <a [routerLink]="['inicio']" [routerLinkActive]="['active']">Inicio</a>
   <a [routerLink]="['tienda']" [routerLinkActive]="['active']">Tienda</a>
   <a [routerLink]="['nosotros']" [routerLinkActive]="['active']">Nosotros</a>
-  <a [routerLink]="['carrito']" [routerLinkActive]="['active']">Carrito</a>
-  <a [routerLink]="['sign-up']" [routerLinkActive]="['active']">Registrarse</a>
-  <a [routerLink]="['vista-perfil']" [routerLinkActive]="['active']">Perfil de Usuario</a>
+  <a *ngIf="!isNoAuthenticated" [routerLink]="['carrito']" [routerLinkActive]="['active']">Carrito</a>
+  <a *ngIf="!isAuthenticated" [routerLink]="['sign-up']" [routerLinkActive]="['active']">Registrarse</a>
+  <a *ngIf="!isNoAuthenticated" [routerLink]="['vista-perfil']" [routerLinkActive]="['active']">Perfil de Usuario</a>
   <a [routerLink]="['agregar-producto']" [routerLinkActive]="['active']">Agregar producto</a>
-  <a href="#" (click)="signOut()">Sign Out</a>
+  <a *ngIf="!isAuthenticated" [routerLink]="['login']" [routerLinkActive]="['active']">Login</a>
+  <a href="#" (click)="signOut()" *ngIf="!isNoAuthenticated">Sign Out</a>
 </div>
 <router-outlet/>

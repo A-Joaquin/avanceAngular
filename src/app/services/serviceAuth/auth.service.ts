@@ -6,7 +6,7 @@ import { AuthResponse } from '../../interfaces/authResponse';
 import { User } from '../../interfaces/juegos/user';
 import { tap, catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
-
+import { BehaviorSubject } from 'rxjs';
 import {jwtDecode} from 'jwt-decode'; // Ajuste en la importación
 @Injectable({
   providedIn: 'root'
@@ -15,7 +15,7 @@ export class AuthService {
 
   private apiUrl = 'http://127.0.0.1:5000/auth/login';
   private apiUrl2 = 'http://127.0.0.1:5000/users';
-
+  private authStatus = new BehaviorSubject<boolean>(this.isAuthenticated());
   constructor(private http: HttpClient) { }
 
   user!:User;
@@ -33,6 +33,7 @@ export class AuthService {
 
   setToken(token: string): void {
     localStorage.setItem('token', token);
+    this.authStatus.next(true);
   }
 
   getToken(): string | null {
@@ -41,10 +42,18 @@ export class AuthService {
 
   logout(): void {
     localStorage.removeItem('token');
+    this.authStatus.next(false);
   }
 
   isAuthenticated(): boolean {
     return this.getToken() !== null;
+  }
+  isNoAuthenticated(): boolean {
+    return this.getToken() == null;
+  }
+
+  getAuthStatus(): Observable<boolean> {
+    return this.authStatus.asObservable();
   }
 
   getUserIdFromToken(): number | null {

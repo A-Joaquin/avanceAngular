@@ -15,6 +15,8 @@ import { Juego } from '../../interfaces/juegos/juego';
 })
 export class TiendaComponent implements OnInit{
 
+  isAuthenticated: boolean=false;
+  isNoAuthenticated: boolean=false;
   usuario: string = '';
   listaDeProductos: Juego[] = [];
   productosService: ProductoService = inject(ProductoService);
@@ -23,6 +25,10 @@ export class TiendaComponent implements OnInit{
 
   }
   ngOnInit(): void {
+
+    this.isAuthenticated = this.authService.isAuthenticated();
+    this.isNoAuthenticated = this.authService.isNoAuthenticated();
+
     this.cargarProductos();
 
     const userId = this.authService.getUserIdFromToken();
