@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { AuthService } from './services/serviceAuth/auth.service';
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-root',
   standalone: true,

@@ -1,4 +1,5 @@
 <div class="topnav">
+  <div class="cont-img"><a [routerLink]="['inicio']"><img src="../assets/imagenes/tienda-de-juegos.png" alt="logo tienda de juegos"></a></div>
   <a [routerLink]="['inicio']" [routerLinkActive]="['active']">Inicio</a>
   <a [routerLink]="['tienda']" [routerLinkActive]="['active']">Tienda</a>
   <a [routerLink]="['nosotros']" [routerLinkActive]="['active']">Nosotros</a>
@@ -10,4 +11,30 @@
   <a href="#" (click)="signOut()" *ngIf="!isNoAuthenticated">Sign Out</a>
   
 </div>
-<router-outlet/>
+
+<div><router-outlet/></div>
+
+<footer>
+  <div class="cont-footer">
+    <div class="cont-footer-2">
+      <div><a [routerLink]="['inicio']" [routerLinkActive]="['active']">Inicio</a></div>
+      <div><a [routerLink]="['tienda']" [routerLinkActive]="['active']">Tienda</a></div>
+      <div><a [routerLink]="['nosotros']" [routerLinkActive]="['active']">Nosotros</a></div>
+      <div><a *ngIf="!isNoAuthenticated" [routerLink]="['carrito']" [routerLinkActive]="['active']">Carrito</a></div>
+      <div><a *ngIf="!isAuthenticated" [routerLink]="['sign-up']" [routerLinkActive]="['active']">Registrarse</a></div>
+      <div><a *ngIf="!isNoAuthenticated" [routerLink]="['vista-perfil']" [routerLinkActive]="['active']">Perfil de Usuario</a></div>
+      <div><a [routerLink]="['agregar-producto']" [routerLinkActive]="['active']">Agregar producto</a></div>
+      <div><a *ngIf="!isAuthenticated" [routerLink]="['login']" [routerLinkActive]="['active']">Login</a></div>
+      <div><a href="#" (click)="signOut()" *ngIf="!isNoAuthenticated">Sign Out</a></div>
+    </div>
+    <div class="cont-footer-2">
+      <div class="footer-icon"><a [routerLink]="['inicio']"><img src="../assets/imagenes/tienda-de-juegos.png" alt="logo tienda de juegos"></a></div>
+      <div class="footer-icon" id="social-icon">
+        <div><a href=""><img src="../assets/imagenes/facebook.png" alt="icono de facebook"></a></div>
+        <div><a href=""><img src="../assets/imagenes/instagram.png" alt="icono de instagram"></a></div>
+        <div><a href=""><img src="../assets/imagenes/twitter.png" alt="icono de twitter"></a></div>
+      </div>
+      <div id="firma">Tienda de videojuegos Bolivia © 2024. Todos los derechos reservados.</div>
+    </div>
+  </div>
+</footer>
