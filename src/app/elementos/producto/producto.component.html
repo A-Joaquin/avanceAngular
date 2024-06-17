@@ -1,17 +1,17 @@
 <div class="contenedor-producto">
-  <h2 class="titulo">{{producto.title}}</h2>
+
   <div class="contenedor-imagen">
-    <img src="{{producto.image}}" alt="{{producto.title}}">
+    <img class="imagen" src="{{producto.image}}" alt="{{producto.title}}">
   </div>
-  <div class="clasificacion">
-    <span class="clasificacion-titulo">Clasificación: </span><span>{{producto.rating.rate}}</span>
-  </div>
+  <h4 class="titulo">{{producto.title}}</h4>
   <div class="precio">
-    <span>Precio: </span><span>{{producto.price}}</span>
+    <span>Precio: </span><span>{{producto.price}} USD$</span>
   </div>
   <div class="acciones">
-    <a class="detalles" [routerLink]="['/detalles', producto.id]">Detalles</a>
-    <button class="borrar" (click)="borrarProducto(producto.id)">Borrar</button>
-    <a class="editar" [routerLink]="['/edit-producto', producto.id]">Editar</a>
+    <div class="botones">
+      <button class="btn-comprar" [routerLink]="['/detalles', producto.id]">Detalles</button>
+      <button  class="btn-carrito" (click)="borrarProducto(producto.id)">Borrar</button>
+      <button class="btn-deseos" [routerLink]="['/edit-producto', producto.id]">Editar</button>
+    </div>
   </div>
 </div>

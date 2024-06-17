@@ -1,81 +1,159 @@
 .contenedor-producto {
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  padding: 16px;
-  max-width: 400px;
-  margin: 20px auto;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  background-color: #f9f9f9;
+  background-color: #1a1a1a;
+  color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  width: 500px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  font-family: Arial, sans-serif;
+  padding-top: 5%;
 }
 
 .titulo {
   font-size: 1.5em;
-  margin-bottom: 16px;
-  color: #333;
+  margin: 10px 0;
+  text-align: center;
 }
 
 .contenedor-imagen {
+  position: relative;
+  overflow: hidden;
+  height: 200px;
   text-align: center;
-  margin-bottom: 16px;
+
+}
+.imagen{
+  border-radius: 5%;
 }
 
 .contenedor-imagen img {
   max-width: 100%;
-  border-radius: 8px;
-}
-
-.clasificacion {
-  margin-bottom: 8px;
-}
-
-.clasificacion-titulo {
-  font-weight: bold;
-  color: #555;
-}
-
-.descripcion {
-  font-size: 1em;
-  color: #666;
-  margin-bottom: 16px;
+  max-height: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
 .precio {
+  padding: 10px;
+  text-align: center;
   font-size: 1.2em;
-  font-weight: bold;
-  color: #333;
-  margin-bottom: 16px;
+  color: #ccc;
 }
 
 .acciones {
+  padding: 10px;
+  text-align: center;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  justify-content: center;
 }
 
-.acciones a, .acciones button {
-  padding: 10px 16px;
-  border: none;
-  border-radius: 4px;
+.detalles {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
   text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin: 5px;
+}
+
+.detalles:hover {
+  background-color: #0056b3;
+}
+
+.borrar {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #dc3545;
+  color: #fff;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s ease;
+  margin: 5px;
 }
 
-.acciones a.detalles {
-  background-color: #007bff;
-  color: white;
+.borrar:hover {
+  background-color: #c82333;
 }
 
-.acciones button.borrar {
-  background-color: #dc3545;
-  color: white;
-}
-
-.acciones a.editar {
+.editar {
+  display: inline-block;
+  padding: 10px 20px;
   background-color: #28a745;
-  color: white;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin: 5px;
 }
 
-.acciones a:hover, .acciones button:hover {
-  opacity: 0.8;
+.editar:hover {
+  background-color: #218838;
+}
+.botones
+{
+  width: 75%;
+  display: flex;
+  justify-content: space-around;
+}
+
+/* Estilo para el botón "Comprar Ahora" */
+.btn-comprar {
+  background-color: #007bff; /* Color de fondo azul */
+  color: white; /* Color del texto blanco */
+  padding: 10px 30px; /* Espaciado interno del botón */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  font-size: 16px; /* Tamaño de la fuente */
+  display: inline-block; /* Mostrar en línea */
+  margin-bottom: 10px; /* Margen inferior */
+  text-align: center; /* Alineación del texto */
+
+}
+
+.btn-comprar:hover {
+  background-color: #0056b3; /* Color de fondo al pasar el ratón */
+}
+
+/* Estilo para el botón "Añadir al Carrito" */
+.btn-carrito {
+  background-color: #333; /* Color de fondo gris oscuro */
+  color: white; /* Color del texto blanco */
+  padding: 10px 30px; /* Espaciado interno del botón */
+  border: none; /* Sin borde */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  font-size: 16px; /* Tamaño de la fuente */
+  display: inline-block; /* Mostrar en línea */
+  margin-bottom: 10px; /* Margen inferior */
+  text-align: center; /* Alineación del texto */
+}
+
+.btn-carrito:hover {
+  background-color: #c82333;
+}
+
+/* Estilo para el botón "A la Lista de Deseos" */
+.btn-deseos {
+  background-color: transparent; /* Sin color de fondo */
+  color: white; /* Color del texto blanco */
+  padding: 10px 30px; /* Espaciado interno del botón */
+
+  border: 1px solid white; /* Borde blanco */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  font-size: 16px; /* Tamaño de la fuente */
+  display: inline-block; /* Mostrar en línea */
+  margin-bottom: 10px; /* Margen inferior */
+  text-align: center; /* Alineación del texto */
+}
+
+.btn-deseos:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Color de fondo al pasar el ratón */
 }
