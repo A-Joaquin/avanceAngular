@@ -6,10 +6,11 @@ import { AuthService } from '../../services/serviceAuth/auth.service';
 import { CommonModule } from '@angular/common';
 import { AgregarProductoComponent } from '../agregar-producto/agregar-producto.component';
 import { Juego } from '../../interfaces/juegos/juego';
+import { FormsModule } from '@angular/forms';
 @Component({
   selector: 'app-tienda',
   standalone: true,
-  imports: [ProductoComponent,CommonModule,AgregarProductoComponent],
+  imports: [ProductoComponent,CommonModule,AgregarProductoComponent,FormsModule],
   templateUrl: './tienda.component.html',
   styleUrl: './tienda.component.scss'
 })
@@ -19,6 +20,8 @@ export class TiendaComponent implements OnInit{
   isNoAuthenticated: boolean=false;
   usuario: string = '';
   listaDeProductos: Juego[] = [];
+  productosFiltrados: Juego[] = [];
+  terminoBusqueda: string = '';
   productosService: ProductoService = inject(ProductoService);
   authService:AuthService=inject(AuthService);
   constructor() {
@@ -45,10 +48,21 @@ export class TiendaComponent implements OnInit{
     this.productosService.obtenerTodosLosProductos().subscribe(
       data => {
         this.listaDeProductos = data;
+        this.filtrarProductos();
       },
       error => console.log("Hubo un error:", error),
       () => console.log("Finalizado")
     );
+  }
+
+  filtrarProductos(): void {
+    if (this.terminoBusqueda.trim() !== '') {
+      this.productosFiltrados = this.listaDeProductos.filter(producto =>
+        producto.title.toLowerCase().includes(this.terminoBusqueda.toLowerCase())
+      );
+    } else {
+      this.productosFiltrados = [...this.listaDeProductos];
+    }
   }
 
   onProductoAgregado(nuevoProducto: Juego): void {

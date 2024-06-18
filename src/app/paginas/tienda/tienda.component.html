@@ -1,9 +1,16 @@
-<div *ngIf="usuario">
-  <h1>Bienvenido, {{ usuario }}</h1>
+<div class="cont-nav">
+  <div *ngIf="usuario" class="user-present">
+    <h1><span>Bienvenido</span><span>, </span> <span>{{ usuario }}</span></h1>
+  </div>
+  <div class="sub-nav">
+    <div class="buscador">
+      <input type="text" [(ngModel)]="terminoBusqueda" (input)="filtrarProductos()" placeholder="Buscar videojuegos...">
+    </div>
+  </div>
 </div>
 
 <div class="contenedor-productos">
-    @for ( producto of listaDeProductos; track producto.id){
+    @for ( producto of productosFiltrados; track producto.id){
       <div>
         <app-producto [producto]="producto" (productoEliminado)="manejarProductoEliminado($event)"></app-producto>
       </div>
@@ -11,13 +18,12 @@
       <p>No existen productos</p>
     }
 </div>
-<!-- Aplicando la clase CSS al componente -->
 
-
-<app-agregar-producto (productoAgregado)="onProductoAgregado($event)"></app-agregar-producto>
-
-
-
-
-
-
+<div class="cont-final">
+  <div>
+    <h2><span>TU </span><span>SITIO </span><span>PREFERIDO </span><span>DE </span><span>VIDEOJUEGOS</span></h2>
+  </div>
+  <div>
+    <app-agregar-producto (productoAgregado)="onProductoAgregado($event)"></app-agregar-producto>
+  </div>
+</div>
