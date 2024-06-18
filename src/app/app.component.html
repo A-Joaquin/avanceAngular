@@ -17,20 +17,26 @@
 <footer>
   <div class="cont-footer">
     <div class="cont-footer-2">
-      <div><a [routerLink]="['inicio']" [routerLinkActive]="['active']">Inicio</a></div>
-      <div><a [routerLink]="['tienda']" [routerLinkActive]="['active']">Tienda</a></div>
-      <div><a [routerLink]="['nosotros']" [routerLinkActive]="['active']">Nosotros</a></div>
-      <div><a *ngIf="!isNoAuthenticated" [routerLink]="['carrito']" [routerLinkActive]="['active']">Carrito</a></div>
-      <div><a *ngIf="!isAuthenticated" [routerLink]="['sign-up']" [routerLinkActive]="['active']">Registrarse</a></div>
-      <div><a *ngIf="!isNoAuthenticated" [routerLink]="['vista-perfil']" [routerLinkActive]="['active']">Perfil de Usuario</a></div>
-      <div><a [routerLink]="['agregar-producto']" [routerLinkActive]="['active']">Agregar producto</a></div>
-      <div><a *ngIf="!isAuthenticated" [routerLink]="['login']" [routerLinkActive]="['active']">Login</a></div>
-      <div><a href="#" (click)="signOut()" *ngIf="!isNoAuthenticated">Sign Out</a></div>
+      <div class="cont-footer-3">
+        <div>
+          <div><a [routerLink]="['inicio']" [routerLinkActive]="['active']">Inicio</a></div>
+          <div><a [routerLink]="['tienda']" [routerLinkActive]="['active']">Tienda</a></div>
+          <div><a [routerLink]="['nosotros']" [routerLinkActive]="['active']">Nosotros</a></div>
+        </div>
+        <div>
+          <div><a *ngIf="!isNoAuthenticated" [routerLink]="['carrito']" [routerLinkActive]="['active']">Carrito</a></div>
+          <div><a *ngIf="!isAuthenticated" [routerLink]="['sign-up']" [routerLinkActive]="['active']">Registrarse</a></div>
+          <div><a *ngIf="!isNoAuthenticated" [routerLink]="['vista-perfil']" [routerLinkActive]="['active']">Perfil de Usuario</a></div>
+          <div><a [routerLink]="['agregar-producto']" [routerLinkActive]="['active']">Agregar producto</a></div>
+          <div><a *ngIf="!isAuthenticated" [routerLink]="['login']" [routerLinkActive]="['active']">Login</a></div>
+          <div><a href="#" (click)="signOut()" *ngIf="!isNoAuthenticated">Sign Out</a></div>
+        </div>
+      </div>
     </div>
     <div class="cont-footer-2">
       <div class="footer-icon"><a [routerLink]="['inicio']"><img src="../assets/imagenes/tienda-de-juegos.png" alt="logo tienda de juegos"></a></div>
-      <div class="footer-icon" id="social-icon">
-        <div><a href="https://www.facebook.com/?locale=es_LA" target="_blank"><img src="../assets/imagenes/facebook.png" alt="icono de facebook"></a></div>
+      <div class="footer-icon-4" id="social-icon">
+        <div class="iconoFooter"><a href="https://www.facebook.com/?locale=es_LA" target="_blank"><img src="../assets/imagenes/facebook.png" alt="icono de facebook"></a></div>
         <div><a href="https://www.instagram.com/" target="_blank"><img src="../assets/imagenes/instagram.png" alt="icono de instagram"></a></div>
         <div><a href="https://x.com/?lang=es" target="_blank"><img src="../assets/imagenes/twitter.png" alt="icono de twitter"></a></div>
       </div>

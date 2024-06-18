@@ -135,6 +135,9 @@
 
 #inicio-game1 {
     background-image: url(../../../assets/imagenes/ea-sports-fc-24.jpg);
+    background-size: cover; /* Ajusta la imagen para que cubra todo el contenedor */
+    background-position: center; /* Centra la imagen */
+    background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
 
 #inicio-game1 .content{
@@ -212,7 +215,7 @@ table {
 }
 
 table tbody td img {
-    width: 50%;
+    width: 30%;
     filter: invert(100%);
     background: #2A2A2A;
     box-shadow: 0 30px 50px white;
@@ -220,4 +223,12 @@ table tbody td img {
 
 tfoot td{
     padding-top: 2%;
+}
+.imagenBorder
+{
+    border-radius: 20%;
+}
+.subTitulo-consola
+{
+    padding-bottom: 20px;
 }
