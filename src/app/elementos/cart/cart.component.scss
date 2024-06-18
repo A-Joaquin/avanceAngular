@@ -1,60 +1,98 @@
-.cart-contenedor-detalle {
+body {
+  font-family: Arial, sans-serif;
+  background-color: #1a1a1a;
+  color: white;
+  margin: 0;
+  padding: 0;
+}
+.container {
   display: flex;
   align-items: center;
-  background-color: #f9f9f9;
+  justify-content: space-between;
   padding: 20px;
+  background-color: #2a2a2a;
+  border: 1px solid #444;
+  width: 650px;
+  margin: 20px auto;
   border-radius: 10px;
-  margin-bottom: 20px;
 }
-
-.cart-imagen {
-  flex: 0 0 5%; /* Cambiado el tamaño del contenedor de la imagen */
-  margin-right: 20px;
+h1{
+  color: #ccc;
+  font-family: Arial, Helvetica, sans-serif;
 }
-
-.cart-imagen img {
-  width: 100%; /* La imagen ocupará todo el espacio disponible en el contenedor */
+p{
+  color: #ccc;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.game-info {
+  display: flex;
+  align-items: center;
+}
+.game-info img {
+  width: 250px;
+  height: auto;
   border-radius: 5px;
 }
-
-.cart-descripcion {
-  flex: 1;
+.details {
+  margin-left: 20px;
+  width: 50%;
 }
-
-.cart-titulo {
-  font-size: 1.2em;
-  margin-bottom: 10px;
+.details h1 {
+  margin: 0;
+  font-size: 1.5em;
 }
-
-.cart-precio-recomendado {
-  margin-bottom: 5px;
+.details .rating {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
 }
-
-.cart-precio-recomendado s {
-  color: #888;
+.details .rating img {
+  width: 50px;
+  height: auto;
+  margin-right: 10px;
 }
-
-.cart-precio-oferta {
+.details .rating div {
+  font-size: 0.9em;
+  color: #ccc;
+}
+.price {
+  text-align: right;
+}
+.price .amount {
+  font-size: 1em;
   font-weight: bold;
-  color: #28a745;
-  margin-bottom: 10px;
+  color: #ccc;
 }
-
-.cart-cantidad {
-  font-style: italic;
-  margin-bottom: 10px;
+.price .wishlist {
+  margin-top: 20px;
 }
-
-button {
-  padding: 10px 20px;
-  background-color: #dc3545;
+.button {
+  background-color: #444;
   color: white;
-  border: none;
+  padding: 10px 20px;
+  text-decoration: none;
   border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s;
+  margin-top: 10px;
+  display: inline-block;
+}
+.button:hover {
+  background-color: #555;
 }
 
-button:hover {
-  background-color: #c82333;
+.btn-deseos {
+  background-color: transparent; /* Sin color de fondo */
+  color: white; /* Color del texto blanco */
+  padding: 10px 30px; /* Espaciado interno del botón */
+
+  border: 1px solid white; /* Borde blanco */
+  border-radius: 4px; /* Bordes redondeados */
+  cursor: pointer; /* Cambiar el cursor al pasar sobre el botón */
+  font-size: 16px; /* Tamaño de la fuente */
+  display: inline-block; /* Mostrar en línea */
+  margin-bottom: 10px; /* Margen inferior */
+  text-align: center; /* Alineación del texto */
+}
+
+.btn-deseos:hover {
+  background-color: rgba(255, 255, 255, 0.1); /* Color de fondo al pasar el ratón */
 }

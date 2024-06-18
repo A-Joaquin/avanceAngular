@@ -1,10 +1,9 @@
 <!-- carrito.component.html -->
 
 <div class="carritos-container" *ngIf="carritos.length > 0; else noCarritos">
-  <h1>Lista de Carritos</h1>
+  <h1 class="titulo">Mi Carrito</h1>
   <div *ngFor="let carrito of carritos" class="carrito">
-      <h2>Carrito #{{ carrito.id }}</h2>
-      <p><strong>Productos:</strong></p>
+      <p class="tituloProductos"><strong>Productos:</strong></p>
       <ul>
           <li *ngFor="let product of carrito.products">
               <app-cart [productCart]="product" (productoEliminado)="manejarProductoEliminado($event)"></app-cart>

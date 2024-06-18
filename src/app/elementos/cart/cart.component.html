@@ -1,12 +1,21 @@
-<div class="cart-contenedor-detalle" *ngIf="detalleDelProducto">
-  <div class="cart-imagen">
-    <img [src]="detalleDelProducto.image" alt="Product Image">
+
+<div class="container" *ngIf="detalleDelProducto">
+  <div class="game-info">
+      <img [src]="detalleDelProducto.image" alt="Product Image">
+      <div class="details">
+          <h1>{{ detalleDelProducto.title }}</h1>
+          <div class="rating">
+              <div>
+                  <p>{{ detalleDelProducto.category }}</p>
+              </div>
+          </div>
+          <p>{{ detalleDelProducto.description }}</p>
+      </div>
   </div>
-  <div class="cart-descripcion">
-    <h2 class="cart-titulo">{{ detalleDelProducto.title }}</h2>
-    <p class="cart-precio-recomendado"><s>Precio de venta recomendado: $1785</s></p>
-    <p class="cart-precio-oferta"><strong>¡Ahora a la venta por solo ${{ detalleDelProducto.price }}</strong></p>
-    <p class="cart-cantidad">cantidad: {{ productCart.quantity }}</p>
-    <button (click)="eliminarProductoCarrito()">Eliminar producto del carrito</button>
+  <div class="price">
+      <div class="amount">USD {{ detalleDelProducto.price }}</div>
+      <div class="wishlist">
+          <button class="btn-deseos" (click)="eliminarProductoCarrito()">Eliminar</button>
+      </div>
   </div>
 </div>
