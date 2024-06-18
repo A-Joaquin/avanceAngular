@@ -1,52 +1,56 @@
 form {
-    max-width: 400px;
-    margin: 20px auto;
-    padding: 15px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    background-color: #f9f9f9;
-    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  form div {
-    margin-bottom: 10px;
-  }
-  
-  form label {
-    display: block;
-    font-weight: bold;
-    margin-bottom: 3px;
-    font-size: 14px;
-  }
-  
-  form input,
-  form textarea {
-    width: 100%;
-    padding: 8px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    font-size: 14px;
-  }
-  
-  form textarea {
-    height: 80px;
-    resize: vertical;
-  }
-  
-  form button {
-    display: block;
-    width: 100%;
-    padding: 10px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-  }
-  
-  form button:hover {
-    background-color: #0056b3;
-  }
-  
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 15px;
+  border: 2px solid; /* Borde más ancho */
+  border-radius: 8px;
+  background-color: #121212;
+  color: #ffffff;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  border-image-source: linear-gradient(45deg, red, black);
+  border-image-slice: 1;
+}
+
+form div {
+  margin-bottom: 10px;
+}
+
+form label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 3px;
+  font-size: 14px;
+}
+
+form input,
+form textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-size: 14px;
+  background-color: #333;
+  color: #ffffff;
+}
+
+form textarea {
+  height: 80px;
+  resize: vertical;
+}
+
+form button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #565656; /* Color plomo */
+  color: #cccccc; /* Texto no tan blanco */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+form button:hover {
+  background-color: #404040; /* Más oscuro al pasar el ratón */
+}

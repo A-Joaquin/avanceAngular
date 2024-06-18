@@ -1,32 +1,36 @@
 <div class="perfil-container">
-  <div class="perfil-header">
-      <img src="https://prints.ultracoloringpages.com/c99dc7e3eae4271593d51a4e8e336571.png" alt="Foto de perfil" class="imagen">
-      <h1>Perfil de {{ perfilForm.value.username }}</h1>
-  </div>
-  <p class="subtitle">Just cooler than cool am I. Citizen of the World, Equality for All, Film Addict.</p>
-  <div class="perfil-content">
-      <div class="perfil-section">
-          <h2>Información Personal</h2>
-          <p><strong>Email:</strong> {{ perfilForm.value.email }}</p>
-          <p><strong>Username:</strong> {{ perfilForm.value.username }}</p>
-          <p><strong>Password:</strong> *******</p>
-          <p><strong>First Name:</strong> {{ perfilForm.value.firstname }}</p>
-          <p><strong>Last Name:</strong> {{ perfilForm.value.lastname }}</p>
-      </div>
-      <div class="perfil-section">
-          <h2>Dirección</h2>
-          <p><strong>City:</strong> {{ perfilForm.value.city }}</p>
-          <p><strong>Street:</strong> {{ perfilForm.value.street }}</p>
-          <p><strong>Number:</strong> {{ perfilForm.value.number }}</p>
-          <p><strong>Zipcode:</strong> {{ perfilForm.value.zipcode }}</p>
-      </div>
-      <div class="perfil-section">
-          <h2>Contacto</h2>
-          <p><strong>Phone:</strong> {{ perfilForm.value.phone }}</p>
-      </div>
-  </div>
-  <a class="editar-perfil" [routerLink]="['/perfil']">Editar Perfil</a>
-  <div *ngIf="errorMessage" class="error-message">
-    {{ errorMessage }}
-  </div>
-</div>
+    <div class="perfil-header">
+        <img src="https://prints.ultracoloringpages.com/c99dc7e3eae4271593d51a4e8e336571.png" alt="Foto de perfil" class="imagen">
+        <h1>Perfil de {{ perfilForm.value.username }}</h1>
+    </div>
+    <p class="subtitle">Just cooler than cool am I. Citizen of the World, Equality for All, Film Addict.</p>
+    <div class="perfil-content">
+        <div class="perfil-info">
+            <div class="perfil-section">
+                <h2>Información Personal</h2>
+                <p><strong>Email:</strong> {{ perfilForm.value.email }}</p>
+                <p><strong>Username:</strong> {{ perfilForm.value.username }}</p>
+                <p><strong>First Name:</strong> {{ perfilForm.value.firstname }}</p>
+                <p><strong>Last Name:</strong> {{ perfilForm.value.lastname }}</p>
+            </div>
+            <div class="perfil-section">
+                <h2>Dirección</h2>
+                <p><strong>City:</strong> {{ perfilForm.value.city }}</p>
+                <p><strong>Street:</strong> {{ perfilForm.value.street }}</p>
+                <p><strong>Number:</strong> {{ perfilForm.value.number }}</p>
+                <p><strong>Zipcode:</strong> {{ perfilForm.value.zipcode }}</p>
+            </div>
+            <div class="perfil-section">
+                <h2>Contacto</h2>
+                <p><strong>Phone:</strong> {{ perfilForm.value.phone }}</p>
+            </div>
+        </div>
+        <div class="perfil-image">
+            <img src="assets/mando.png" alt="Gaming Controller">
+        </div>
+    </div>
+    <a class="editar-perfil" [routerLink]="['/perfil']">Editar Perfil</a>
+    <div *ngIf="errorMessage" class="error-message">
+      {{ errorMessage }}
+    </div>
+ </div>
